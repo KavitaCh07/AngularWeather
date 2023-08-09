@@ -1,0 +1,7 @@
+
+.home-background{
+    background: url('../../assets/background.png') no-repeat; 
+    background-size: cover;
+    min-height: 78.7vh;
+    padding: 5% 10%;
+}

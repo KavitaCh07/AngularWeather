@@ -1,0 +1,26 @@
+.tabs-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tabs-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+}
+
+.tab {
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 15px;
+    cursor: pointer;
+    /* text-transform: uppercase; */
+}

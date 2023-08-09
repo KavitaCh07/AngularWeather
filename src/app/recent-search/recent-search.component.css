@@ -1,0 +1,94 @@
+.recent-searchs-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.3rem;
+}
+
+.no-recents-searchs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 0;
+}
+
+.no-recents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.no-recent-text {
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 21px;
+    text-align: center;
+}
+
+.count-remove{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.recent-search-text,.clear-all-text{
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 15px;
+    cursor: pointer;
+}
+
+.recent-card-container{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.recent-card {
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+}
+
+.recent-city{
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 19px;
+}
+
+.recent-city-weather-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.recent-city-temp {
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 38px;
+}
+
+.recent-city-temp-name{
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 21px;
+}

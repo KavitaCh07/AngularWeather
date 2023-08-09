@@ -1,0 +1,52 @@
+<div class="footer">
+    <div class="footer-contains">
+        <div class="footer-info">
+            <div class="info-img"><img src="../../assets/icon_temperature_info.png" alt="" class="footer-info-img">
+            </div>
+            <div class="footer-info-content">
+                <div class="footer-info-heading">Min-Max</div>
+                <div class="footer-heading-info">{{responseData && responseData.current_observation &&
+                    responseData.current_observation.condition.temperature - 3}} <span>&deg;</span> - {{responseData &&
+                    responseData.current_observation && responseData.current_observation.condition.temperature +
+                    3}}<span>&deg;</span></div>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-img"><img src="../../assets/icon_precipitation_info.png" alt="" class="footer-info-img">
+            </div>
+            <div class="footer-info-content">
+                <div class="footer-info-heading">Precipitation</div>
+                <div class="footer-heading-info">{{responseData && responseData.current_observation &&
+                    responseData.current_observation.atmosphere.pressure}}%</div>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-img"><img src="../../assets/icon_humidity_info.png" alt="" class="footer-info-img"></div>
+            <div class="footer-info-content">
+                <div class="footer-info-heading">Humidity</div>
+                <div class="footer-heading-info">{{responseData && responseData.current_observation &&
+                    responseData.current_observation.atmosphere.humidity}}%</div>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-img"><img src="../../assets/icon_wind_info.png" alt="" class="footer-info-img"></div>
+            <div class="footer-info-content">
+                <div class="footer-info-heading">Wind</div>
+                <div class="footer-heading-info">{{responseData && responseData.current_observation &&
+                    responseData.current_observation.wind.speed}} mph</div>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-img"><img src="../../assets/icon_visibility_info.png" alt="" class="footer-info-img"></div>
+            <div class="footer-info-content">
+                <div class="footer-info-heading">Visibility</div>
+                <div class="footer-heading-info">{{responseData && responseData.current_observation &&
+                    responseData.current_observation.atmosphere.visibility}} mph</div>
+            </div>
+        </div>
+    </div>
+</div>

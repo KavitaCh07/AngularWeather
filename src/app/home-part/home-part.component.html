@@ -1,0 +1,20 @@
+<div class="main-part">
+    <div class="city-state">{{responseData && responseData.location && responseData.location.city}}, {{responseData &&
+        responseData.location && responseData.location.country}}</div>
+    <div class="fav">
+        <img src="../../assets/icon_favourite.png" alt="" class="heart-img">
+        <div class="add-to-fav-text">Add to favourite</div>
+    </div>
+
+    <div class="temperature-info">
+        <div class="temp-img"><img src="../../assets/icon_mostly_sunny.png" alt=""></div>
+        <div class="temp-deg-fer">
+            <div class="temp-num">{{responseData && responseData.current_observation &&
+                responseData.current_observation.condition && responseData.current_observation.condition.temperature}}
+            </div>
+        </div>
+        <div class="temp-name">{{responseData && responseData.current_observation &&
+            responseData.current_observation.condition && responseData.current_observation.condition.text}}</div>
+    </div>
+</div>
+<app-footer></app-footer>
