@@ -8,14 +8,13 @@ import { WeatherServiceService } from '../Services/weather-service.service';
 })
 export class FooterComponent {
 
-  responseData
+  responseData: any = []
 
-  constructor(private weatherData: WeatherServiceService){
-    this.weatherData.eventCallback$.subscribe(data => {
-      this.responseData = data
-      console.log(data);
-      
-    })
+  constructor(private weatherData: WeatherServiceService) {
+  }
+
+  onClick() {
+    this.responseData = JSON.parse(localStorage.getItem('recents' || '[]'))
   }
 
 }

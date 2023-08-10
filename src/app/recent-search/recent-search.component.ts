@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class RecentSearchComponent {
 
+  isRecentData: boolean = false
+  recentData: any = []
+  recentLength
+
+
+  addRecentData() {
+    this.recentData = JSON.parse(localStorage.getItem('recentSearches') || '[]')
+    this.recentLength = this.recentData.length
+    // console.log(this.recentData);
+    if (this.recentLength > 0) {
+      this.isRecentData = true;
+    }
+  }
+
+  clearRecents(){
+      localStorage.removeItem('recentSearches')
+  }
 }

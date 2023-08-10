@@ -1,43 +1,38 @@
+{{displayFav()}}
+
 <div class="favourites-container">
 
-    <div class="favourites">
+    <div class="favourites" *ngIf="favDataLength > 0">
         <div class="count-remove">
-            <div class="fav-count">6 City added as favourite</div>
+            <div class="fav-count">{{favDataLength}} City added as favourite</div>
             <div class="remove-text" (click)="openModal()">Remove All</div>
         </div>
-    
-        <div class="fav-card-container">
-            <div class="fav-card">
-                <div class="fav-city">Udupi, Karnataka</div>
-                <div class="fav-city-weather-info">
-                    <div class="weather-img"><img src="../../assets/icon_mostly_cloudy_small.png" alt="" class="fav-city-weather-img"></div>
-                    <div class="fav-city-temp">30 &deg;c</div>
-                    <div class="fav-city-temp-name">Mostly Sunny</div>
+
+        <div class="fav-card-container" *ngFor="let fav of favData">
+            <div class="fav-contains">
+                <div class="fav-card">
+                    <div class="fav-city">{{fav.location.city}}, {{fav.location.country}}</div>
+                    <div class="fav-city-weather-info">
+                        <div class="weather-img">
+                            <img src="../../assets/icon_mostly_cloudy_small.png" alt="" class="fav-city-weather-img">
+                        </div>
+                        <div class="fav-city-temp">{{((fav.current_observation.condition.temperature-32)*5/9)|number : '1.0-0'}} <span class="fav-deg">&deg;C</span></div>
+                        <div class="fav-city-temp-name">{{fav.current_observation.condition.text}}</div>
+                    </div>
+                    <div class="fav-heart">
+                        <img src="../../assets/icon_favourite_Active.png" alt=""(click)="removeFav(fav)">
+                    </div>
                 </div>
-                <div class="fav-heart"><img src="../../assets/icon_favourite_Active.png" alt=""></div>
-            </div>
-        
-            <div class="fav-card">
-                <div class="fav-city">Udupi, Karnataka</div>
-                <div class="fav-city-weather-info">
-                    <div class="weather-img"><img src="../../assets/icon_mostly_cloudy_small.png" alt="" class="fav-city-weather-img"></div>
-                    <div class="fav-city-temp">30 &deg;c</div>
-                    <div class="fav-city-temp-name">Mostly Sunny</div>
-                </div>
-                <div class="fav-heart"><img src="../../assets/icon_favourite_Active.png" alt=""></div>
             </div>
         </div>
     </div>
-    
 
-   
-    <!-- <div class="no-favourites">
+    <div class="no-favourites" *ngIf="favDataLength === 0">
         <div class="no-fav">
             <img src="../../assets/icon_nothing.png" alt="">
             <div class="no-fav-found-text">No Favourites added</div>
         </div>
-    </div> -->
-
+    </div>
 
 </div>
 
@@ -48,10 +43,9 @@
                 <div class="are-u-sure-text">Are you sure want to remove all the favourites?</div>
                 <div class="modal-btns">
                     <div class="no-btn" (click)="closeModal()">NO</div>
-                    <div class="yes-btn">YES</div>
+                    <div class="yes-btn" (click)="clearFav(); closeModal()">YES</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

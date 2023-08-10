@@ -8,9 +8,9 @@ import { HomePartComponent } from "./home-part/home-part.component";
 
 const appRoutes: Routes = [
     // {path:'', component: HomeComponent},
-    {path:'', component: HomePartComponent},
-    {path:'favourites', component: FavouriteComponent},
-    {path: 'recent', component: RecentSearchComponent}
+    { path: '', component: HomePartComponent },
+    { path: 'favourites', component: FavouriteComponent },
+    { path: 'recent', component: RecentSearchComponent }
 ]
 
 @NgModule({

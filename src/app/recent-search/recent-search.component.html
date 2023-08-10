@@ -1,36 +1,33 @@
+{{ addRecentData()}}
 <div class="recent-searchs-container">
-    <div class="recent-searchs">
+
+    <div class="recent-searchs" *ngIf="this.recentLength > 0">
         <div class="count-remove">
             <div class="recent-search-text">You recently searched for</div>
-            <div class="clear-all-text">Clear All</div>
+            <div class="clear-all-text" (click)="clearRecents()">Clear All</div>
         </div>
 
-        <div class="recent-card-container">
-            <div class="recent-card">
-                <div class="recent-city">Coorg, Karnataka</div>
-                <div class="recent-city-weather-info">
-                    <div class="recent-city-weather-img"><img src="../../assets/icon_mostly_cloudy_small.png" alt=""></div>
-                    <div class="recent-city-temp">31 &deg;c</div>
-                    <div class="recent-city-temp-name">Mostly Sunny</div>
+        <div class="recent-card-container" *ngFor="let recents of recentData">
+            <div class="recent-card-contains">
+                <div class="recent-card">
+                    <div class="recent-city">{{recents.location.city}}, {{recents.location.country}}</div>
+                    <div class="recent-city-weather-info">
+                        <div class="recent-city-weather-img"><img src="../../assets/icon_mostly_cloudy_small.png"
+                                alt=""></div>
+                        <div class="recent-city-temp">{{((recents.current_observation.condition.temperature-32)*5/9)|number : '1.0-0'}} <span class="recent-deg">&deg;C</span></div>
+                        <div class="recent-city-temp-name">{{recents.current_observation.condition.text}}</div>
+                    </div>
+                    <div class="heart"><img src="../../assets/icon_favourite.png" alt="" class="recent-heart-img"></div>
                 </div>
-                <div class="heart"><img src="../../assets/icon_favourite.png" alt=""></div>
             </div>
 
-            <div class="recent-card">
-                <div class="recent-city">Coorg, Karnataka</div>
-                <div class="recent-city-weather-info">
-                    <div class="recent-city-weather-img"><img src="../../assets/icon_mostly_cloudy_small.png" alt=""></div>
-                    <div class="recent-city-temp">31 &deg;c</div>
-                    <div class="recent-city-temp-name">Mostly Sunny</div>
-                </div>
-                <div class="heart"><img src="../../assets/icon_favourite.png" alt=""></div>
-            </div>
         </div>
     </div>
-    <!-- <div class="no-recents-searchs">
+
+    <div class="no-recents-searchs" *ngIf="this.recentLength === 0">
         <div class="no-recents">
             <img src="../../assets/icon_nothing.png" alt="">
             <div class="no-recent-text">No Recent Search</div>
         </div>
-    </div> -->
+    </div>
 </div>

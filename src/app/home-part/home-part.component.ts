@@ -6,20 +6,55 @@ import { WeatherServiceService } from '../Services/weather-service.service';
   templateUrl: './home-part.component.html',
   styleUrls: ['./home-part.component.css']
 })
-export class HomePartComponent {
+export class HomePartComponent implements OnInit {
 
-  responseData
-  weatherImgText: string = "" 
-  weatherImg=""
-  
-  constructor(private weatherData: WeatherServiceService){
-    this.weatherData.eventCallback$.subscribe(data => {
-      this.responseData = data
-      console.log(data);
-      this.weatherImgText = this.responseData.current_observation && this.responseData.current_observation.condition && this.responseData.current_observation.condition.text
-      console.log("weather img text", this.weatherImgText);
-    })
+  responseData: any = {}
+  weatherImgText: string = ""
+  weatherImg = ""
+  favHeart:boolean = false
+  favData: any = []
+  favDataFound: boolean = false;
+
+  constructor(private weatherService: WeatherServiceService) {
   }
-  
- 
+
+  ngOnInit(): void { }
+
+  onClick() {
+    this.responseData = JSON.parse(localStorage.getItem('recents' || '[]'))
+   
+    this.favData = JSON.parse(localStorage.getItem('favourits') || '[]');
+    this.favDataFound = this.favData.some(
+      (data: any) => data.location.woeid == this.responseData.location.woeid
+    );
+    if (this.favDataFound) {
+      this.favHeart = true;
+    } else {
+      this.favHeart = false;
+    }
+  }
+
+  addFav(datas: any){
+    this.weatherService.addFav(datas).subscribe(
+      (res: any) => {
+        this.favData = res;
+      },
+      (err: any) => {
+        alert('Enter correct city name');
+      }
+    );
+  }
+
+  removeFav(datas: any) {
+    this.weatherService.removeFav(datas).subscribe(
+      (res: any) => {
+        this.favData = res;
+      },
+      (err: any) => {
+        alert('Enter correct city name');
+      }
+    );
+  }
+
+
 }

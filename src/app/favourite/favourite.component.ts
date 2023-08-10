@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WeatherServiceService } from '../Services/weather-service.service';
 
 @Component({
   selector: 'app-favourite',
@@ -7,13 +8,36 @@ import { Component } from '@angular/core';
 })
 export class FavouriteComponent {
 
-  show=false;
+  show = false;
+  favData: any = []
+  favDataLength: number
+  favouriteData: any = []
 
-  openModal(){
-    this.show=true
+  constructor(private weatherService: WeatherServiceService) { }
+
+  openModal() {
+    this.show = true
   }
-  
-  closeModal(){
-    this.show=false;
+
+  closeModal() {
+    this.show = false;
   }
+
+  displayFav() {
+    this.favData = JSON.parse(localStorage.getItem('favourits') || '[]')
+    console.log("favDta", this.favData);
+    this.favDataLength = this.favData.length
+  }
+
+  removeFav(datas: any) {
+    this.favData = this.favData.filter((data: any) => data.location.woeid !== datas.location.woeid)
+    // console.log(this.favData);
+    localStorage.setItem("favourits", JSON.stringify(this.favData))
+  }
+
+  clearFav(){
+    localStorage.removeItem('favourits')
+  }
+
+
 }

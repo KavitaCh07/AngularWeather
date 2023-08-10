@@ -1,43 +1,60 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { formInput } from '../data-type';
-import { Subject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class WeatherServiceService {
-  private eventCallback = new Subject<string>(); 
-eventCallback$ = this.eventCallback.asObservable();
-  
+
   defaultPlace = "Udupi";
-  
-  
-  responseData;
-  errorMessage;
+  weatherData: any = []
+  favHeart: boolean = false;
+  favData: any = [];
+  favDatas: any = [];
+  favDataFound: boolean = false;
+  localFav: any = [];
 
   constructor(private http: HttpClient) { }
 
-  weather (data: formInput) {
-    console.log(data.searchInput);
-    
+  weather(data: formInput) {
+    // console.log(data.searchInput);
     const headers = {
-      'X-RapidAPI-Key': '24fffc2015msh6666bd6184178e6p18d135jsn99eb393d5ca8',
+      'X-RapidAPI-Key': 'c9a70d85a1msh9fdedff4ba07dd2p137352jsnf5a31b7bf63f',
       'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
     }
-    this.http.get(`https://yahoo-weather5.p.rapidapi.com/weather?location=${data.searchInput}|| Udupi &format=json&u=f`, {headers}).subscribe({
-      next: data => {
-        this.responseData = data;
-        console.log(data);
-        this.eventCallback.next(this.responseData);
-        
-      },
-      error: error => {
-        this.errorMessage = error.message;
-        console.log(error);
-        
-      }
-    })
+    this.weatherData = this.http.get(`https://yahoo-weather5.p.rapidapi.com/weather?location=${data.searchInput} &format=json&u=f`, { headers })
+    return this.weatherData
   }
+
+  addFav(datas: any) {
+    this.favHeart = true;
+    this.favDatas[datas] = true;
+    this.favData = JSON.parse(localStorage.getItem('favourits') || '[]');
+    this.favDataFound = this.favData.some((data: any) => data.location.woeid === datas.location.woeid);
+    console.log(' this.favDataFound ', this.favDataFound);
+
+    if (!this.favDataFound) {
+      this.favData.push(datas);
+
+      this.localFav = localStorage.setItem(
+        'favourits',
+        JSON.stringify(this.favData)
+      );
+      return this.localFav;
+    }
+  }
+
+  removeFav(datas: any) {
+    this.favHeart = false;
+    this.favData = this.favData.filter((data: any) => data.location.woeid !== datas.location.woeid);
+    localStorage.setItem('favourits', JSON.stringify(this.favData));
+    this.localFav = JSON.parse(localStorage.getItem('favourits') || '[]');
+    console.log('this.localFav', this.favData);
+    return this.localFav;
+  }
+
+
 }

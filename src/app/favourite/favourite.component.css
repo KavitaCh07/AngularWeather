@@ -1,4 +1,4 @@
-.favourites-container{
+.favourites-container {
     display: flex;
     flex-direction: column;
     padding: 1rem 0.3rem;
@@ -36,7 +36,8 @@
     padding-bottom: 1rem;
 }
 
-.fav-count,.remove-text {
+.fav-count,
+.remove-text {
     color: #FFFFFF;
     font-family: Roboto, sans-serif;
     font-size: 13px;
@@ -93,6 +94,24 @@
     line-height: 21px;
 }
 
+.fav-heart {
+    cursor: pointer;
+}
+
+.fav-contains {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: .5rem;
+}
+
+.fav-deg {
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+}
+
 /* modal - css */
 
 .overlay {
@@ -123,7 +142,7 @@
     position: relative;
 }
 
-.are-u-sure-text{
+.are-u-sure-text {
     color: #000000;
     font-family: Roboto, sans-serif;
     font-size: 15px;
