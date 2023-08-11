@@ -1,8 +1,8 @@
 <div class="tabs-container">
     <div class="tabs-left">
-        <div class="tab" routerLink="/" routerLinkActive="active">HOME</div>
-        <div class="tab" routerLink="/favourites">FAVOURITE</div>
-        <div class="tab" routerLink="/recent">RECENT SEARCH</div>
+        <div class="tab" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</div>
+        <div class="tab" routerLink="/favourites" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">FAVOURITE</div>
+        <div class="tab" routerLink="/recent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">RECENT SEARCH</div>
     </div>
     <div class="tab-right">
         <div class="tab">{{today}}</div>

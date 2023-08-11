@@ -39,3 +39,32 @@
   letter-spacing: 0;
   line-height: 25px;
 }
+
+@media screen and (max-width: 730px) {
+    
+    .footer{
+        display: flex !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 2rem 0 !important;
+        align-items: center !important;
+        justify-content: space-around;
+        flex-direction: row;
+        /* opacity: 0.1; */
+        background-color: rgba(255, 255, 255, 0.1);
+        overflow-y: hidden;
+        /* margin-top: 3rem; */
+        /* padding-left: 3rem !important; */
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .footer-contains {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 2rem;
+    }
+}

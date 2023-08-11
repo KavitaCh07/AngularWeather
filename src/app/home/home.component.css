@@ -5,3 +5,12 @@
     min-height: 78.7vh;
     padding: 5% 10%;
 }
+
+@media screen and (max-width: 730px) {
+    .home-background{
+        background: url('../../assets/background.png') no-repeat; 
+        background-size: cover;
+        min-height: 100vh;
+        padding: 5% 5%;
+    }
+}

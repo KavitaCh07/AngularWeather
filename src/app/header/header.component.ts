@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { WeatherServiceService } from '../Services/weather-service.service';
 import { formInput } from '../data-type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { formInput } from '../data-type';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private weatherService: WeatherServiceService) {
+  constructor(private weatherService: WeatherServiceService,  private router: Router) {
     // weather service is injected
   }
 
@@ -19,8 +20,31 @@ export class HeaderComponent implements OnInit {
   responseData: any = []
   recentData: any = []
   isRecent: boolean = false
+  hamMenu=false
+  mobileSearch=false
 
   ngOnInit(): void {}
+
+  openMenu(){
+    this.hamMenu=true;
+  }
+
+  closeMenu(){
+    this.hamMenu=false;
+  }
+
+  closeFavMenu(){
+    this.hamMenu=false;
+    this.router.navigate(['/favourites'])
+  }
+
+  openMobileSearch(){
+    this.mobileSearch=true;
+  }
+
+  closeMobileSearch(){
+    this.mobileSearch=false;
+  }
 
 
   // function to submit the form

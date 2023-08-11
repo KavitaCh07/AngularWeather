@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     padding-top: 2rem;
-    padding-bottom: 0.3rem;
+    /* padding-bottom: 0.3rem; */
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -23,4 +23,29 @@
     line-height: 15px;
     cursor: pointer;
     /* text-transform: uppercase; */
+}
+
+.active{
+    color: #FFD639;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 15px;
+    border-bottom: 1px solid #FFD639;
+    padding-bottom: .3rem;
+}
+
+@media screen and (max-width: 730px) {
+
+    .tabs-container {
+       display: none;
+    }
+
+    .tabs-left{
+        display: none;
+    }
+
+  
+    
 }

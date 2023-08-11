@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto&display=swap');
 
-.header{
+.header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.search-input-conatain{
+.search-input-conatain {
     position: relative;
 }
 
@@ -15,15 +15,15 @@ input.search-input {
     border: none;
     outline: none;
     box-sizing: border-box;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 3px;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     padding: 0.6rem;
     width: 350px;
     /* position: relative; */
 }
 
-.search-input::placeholder{
+.search-input::placeholder {
     opacity: 0.8;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
@@ -36,4 +36,111 @@ input.search-input {
     position: absolute;
     right: .7rem;
     top: 0.45rem;
+}
+
+.menu,.back-img, .mobSearch {
+    display: none;
+}
+
+@media screen and (max-width: 730px) {
+
+    .search-input {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .mob-left {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .mangnify-glass {
+        position: absolute;
+        right: -0.1rem;
+        top: -0.65rem;
+    }
+
+    .hamburger-manu {
+        background-color: #FFFFFF;
+        display: flex !important;
+        padding: 0 !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 8rem;
+    }
+
+    .hamburger-tabs {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .ham-tab {
+        color: #707070;
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 36px;
+    }
+
+    .active{
+        color: #000000;
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 36px;
+    }
+
+    .mobSearch {
+        display: flex;
+        position: absolute;
+        background: #ffffff;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .mob-search {
+        display: flex;
+        position: absolute;
+        right: 0;
+        left: 0;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 1.5rem 1.5rem 1.5rem 4rem;
+        color: #707070;
+        font-family: Roboto, sans-serif;
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 36px;
+    }
+
+    .mob-search::placeholder {
+        opacity: 0.3;
+        color: #000000;
+        font-family: Roboto, sans-serif;
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 36px;
+    }
+
+    img.back-img {
+        display: flex;
+        position: absolute;
+        top: 1.8rem;
+        left: 1rem;
+        width: 22px;
+        cursor: pointer;
+    }
+
 }

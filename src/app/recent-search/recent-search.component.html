@@ -1,5 +1,14 @@
 {{ addRecentData()}}
 <div class="recent-searchs-container">
+    <div class="recent-mob-header">
+        <div class="mob-header">
+            <div class="mob-left">
+                <img src="../../assets/back.png" alt="" class="recent-back-img" (click)="onClickBack()">
+                <div class="recent-search-mob-text">Recent Search</div>
+            </div>
+            <div class="mob-right"><img src="../../assets/searchMobile.png" alt="" class="mob-search-img"></div>
+        </div>
+    </div>
 
     <div class="recent-searchs" *ngIf="this.recentLength > 0">
         <div class="count-remove">
@@ -12,12 +21,24 @@
                 <div class="recent-card">
                     <div class="recent-city">{{recents.location.city}}, {{recents.location.country}}</div>
                     <div class="recent-city-weather-info">
-                        <div class="recent-city-weather-img"><img src="../../assets/icon_mostly_cloudy_small.png"
+                        <div class="recent-city-weather-img"><img [src]="'../../assets/' + recents.weatherImg" class="recent-weat-img"
                                 alt=""></div>
-                        <div class="recent-city-temp">{{((recents.current_observation.condition.temperature-32)*5/9)|number : '1.0-0'}} <span class="recent-deg">&deg;C</span></div>
+                        <div class="recent-city-temp">{{((recents.current_observation.condition.temperature-32)*5/9)|number : '1.0-0'}}<span class="recent-deg">&deg;C</span></div>
                         <div class="recent-city-temp-name">{{recents.current_observation.condition.text}}</div>
                     </div>
-                    <div class="heart"><img src="../../assets/icon_favourite.png" alt="" class="recent-heart-img"></div>
+                    <div class="recent-mobile">
+                        <div class="mob-recent-city">{{recents.location.city}}, {{recents.location.country}}</div>
+                    <div class="mob-recent-city-weather-info">
+                        <div class="recent-city-weather-img"><img [src]="'../../assets/' + recents.weatherImg" class="recent-weat-img"
+                                alt=""></div>
+                        <div class="recent-city-temp">{{((recents.current_observation.condition.temperature-32)*5/9)|number : '1.0-0'}}<span class="recent-deg">&deg;C</span></div>
+                        <div class="recent-city-temp-name">{{recents.current_observation.condition.text}}</div>
+                    </div>
+                    </div>
+                    <div class="heart">
+                        <img src="../../assets/icon_favourite.png" alt="" class="recent-heart-img" *ngIf="favHeart[recents.location.woeid] !== true" (click)="addFav(recents)">
+                        <img src="../../assets/icon_favourite_Active.png" alt="" class="recent-heart-img" *ngIf="favHeart[recents.location.woeid] === true" (click)="removeFav(recents)">
+                    </div>
                 </div>
             </div>
 

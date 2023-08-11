@@ -1,11 +1,30 @@
 <div class="header">
-    <div class="logo"><img src="../../assets/logo_web.png" alt=""></div>
+    <div class="mob-left">
+        <div class="menu" (click)="openMenu()"><img src="../../assets/icon_menu_white.png" alt="" class="menu-img"></div>
+        <div class="logo"><img src="../../assets/logo_web.png" alt=""></div>
+        <!-- <img src="../../assets/icon_search_white.png" alt="" class="mangnify-glass"> -->
+    </div>
     <div class="search-form-container">
         <form action="" class="search-form" #myform="ngForm" (ngSubmit)="onSubmit(myform.value)">
             <div class="search-input-conatain">
                 <input type="text" class="search-input" placeholder="Search city" name="searchInput" ngModel>
-                <img src="../../assets/icon_search_white.png" alt="" class="mangnify-glass">
+                <img src="../../assets/icon_search_white.png" alt="" class="mangnify-glass" (click)="openMobileSearch()">
             </div>
         </form>
     </div>
+</div>
+
+<div class="hamburger-manu" *ngIf="hamMenu">
+    <div class="hamburger-tabs">
+        <div class="ham-tab" (click)="closeMenu()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</div>
+        <div class="ham-tab" (click)="closeFavMenu()" routerLink="/favourites" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Favourite</div>
+        <div class="ham-tab" (click)="closeMenu()" routerLink="/recent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Recent Search</div>
+    </div>
+</div>
+
+<div class="mobSearch" *ngIf="mobileSearch">
+    <form action="" #myform="ngForm" (ngSubmit)="onSubmit(myform.value)" >
+        <input type="text" class="mob-search" placeholder="Search for City"  name="searchInput" ngModel>
+        <img src="../../assets/back.png" alt="" class="back-img" (click)="closeMobileSearch()">
+    </form>
 </div>
