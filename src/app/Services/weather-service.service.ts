@@ -2,7 +2,6 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { formInput } from '../data-type';
 
-
 @Injectable({
   providedIn: 'root'
 })

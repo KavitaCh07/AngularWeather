@@ -93,7 +93,7 @@ export class RecentSearchComponent {
   }
 
   addFav(datas: any) {
-    this.favHeart[datas.id] = true;
+    this.favHeart[datas.location.woeid] = true;
     // this.favData[datas] = true;
     this.favDataFound = this.favData.some((data: any) => data.location.woeid === datas.location.woeid);
 
@@ -104,7 +104,7 @@ export class RecentSearchComponent {
   }
 
   removeFav(datas: any) {
-    this.favHeart[datas.id] = false;
+    this.favHeart[datas.location.woeid] = false;
     this.favData = this.favData.filter((data: any) => data.location.woeid !== datas.location.woeid);
     localStorage.setItem('favourits', JSON.stringify(this.favData));
   }

@@ -172,7 +172,7 @@
     color: #FFFFFF;
     font-family: Roboto, sans-serif;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0;
     line-height: 18px;
     text-align: center;
@@ -182,9 +182,9 @@
 
 .no-btn {
     color: #000000;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0;
     line-height: 18px;
     text-align: center;
@@ -202,6 +202,10 @@
 .recent-weat-img {
     width: 30px;
     height: 25px;
+}
+
+.mob-are-u-sure-text{
+    display: none;
 }
 
 @media screen and (max-width: 730px) {
@@ -314,13 +318,14 @@
         font-size: 16px;
         letter-spacing: 0;
         line-height: 24px;
+        display: flex;
     }
 
     .no-btn {
         color: #673AB7;
-        font-family: Roboto;
+        font-family: Roboto, sans-serif;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
         letter-spacing: 0.5px;
         line-height: 16px;
         text-align: center;
@@ -329,9 +334,9 @@
 
     .yes-btn {
         color: #673AB7;
-        font-family: Roboto;
+        font-family: Roboto, sans-serif;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
         letter-spacing: 0.5px;
         line-height: 16px;
         text-align: center;
